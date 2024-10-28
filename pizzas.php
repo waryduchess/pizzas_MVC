@@ -1,8 +1,4 @@
-
-        <?php
-        //pizas.php
-        //<link rel="stylesheet" type="text/css" href="./css/">
-   // <link href="./boots/css/bootstrap.min.css" rel="stylesheet">
+<?php
 class BaseDeDatos {
     private $host = 'localhost';
     private $user = 'erik';
@@ -11,12 +7,12 @@ class BaseDeDatos {
     private $conexion;
 
     public function __construct() {
-        $this->conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
+        $this->conexion = mysqli_connect($this->host, $this->user, $this->password, $this->database);
 
-        if ($this->conexion->connect_error) {
-            die("Error en la conexión: " . $this->conexion->connect_error);
+        // Puedes lanzar una excepción si la conexión falla
+        if (!$this->conexion) {
+            throw new Exception("Error en la conexión: " . mysqli_connect_error());
         }
-        echo "conexion exitosa";
     }
 
     public function getConexion() {
@@ -25,13 +21,17 @@ class BaseDeDatos {
 
     public function cerrarConexion() {
         if ($this->conexion) {
-            $this->conexion->close();
+            mysqli_close($this->conexion);
+            $this->conexion = null; // Limpia la referencia
         }
+    }
+
+    public function estaConectado() {
+        return $this->conexion !== null; // Devuelve true si la conexión es válida
     }
 
     public function __destruct() {
         $this->cerrarConexion();
     }
 }
-
-        ?>
+?>
