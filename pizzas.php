@@ -1,5 +1,6 @@
 
         <?php
+        //pizas.php
         //<link rel="stylesheet" type="text/css" href="./css/">
    // <link href="./boots/css/bootstrap.min.css" rel="stylesheet">
 class BaseDeDatos {

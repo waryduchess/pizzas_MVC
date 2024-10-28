@@ -1,4 +1,5 @@
 <?php
+//consultas.php
 class Pizza {
     private $conn;
     private $pizza_id;
