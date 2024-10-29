@@ -7,31 +7,37 @@ class BaseDeDatos {
     private $conexion;
 
     public function __construct() {
-        $this->conexion = mysqli_connect($this->host, $this->user, $this->password, $this->database);
+        $this->conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
 
-        // Puedes lanzar una excepción si la conexión falla
-        if (!$this->conexion) {
-            throw new Exception("Error en la conexión: " . mysqli_connect_error());
+        if ($this->conexion->connect_error) {
+            throw new Exception("Error en la conexión: " . $this->conexion->connect_error);
         }
     }
 
+    public function prepareQuery($sql) {
+        $stmt = $this->conexion->prepare($sql);
+        if (!$stmt) {
+            throw new Exception("Error en la preparación de la consulta: " . $this->conexion->error);
+        }
+        return $stmt;
+    }
     public function getConexion() {
         return $this->conexion;
     }
 
     public function cerrarConexion() {
         if ($this->conexion) {
-            mysqli_close($this->conexion);
-            $this->conexion = null; // Limpia la referencia
+            $this->conexion->close();
+            $this->conexion = null;
         }
     }
 
     public function estaConectado() {
-        return $this->conexion !== null; // Devuelve true si la conexión es válida
+        return $this->conexion !== null;
     }
 
     public function __destruct() {
-        $this->cerrarConexion();
+       
     }
 }
 ?>

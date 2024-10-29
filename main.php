@@ -3,7 +3,7 @@
 require_once './controlador.php';
 
 $pizzaController = new PizzaController();
-$pizza_id = 3; // Cambia el ID según lo necesites
+$pizza_id = 1; 
 $pizza = $pizzaController->mostrarPizza($pizza_id);
 
 if ($pizza === null) {

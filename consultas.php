@@ -1,5 +1,4 @@
 <?php
-//consultas.php
 class Pizza {
     private $conn;
     private $pizza_id;
@@ -12,15 +11,20 @@ class Pizza {
     public function __construct($conn, $pizza_id) {
         $this->conn = $conn;
         $this->pizza_id = $pizza_id;
-        $this->cargarDatos(); // Llama a este método para cargar todos los datos
+        $this->cargarDatos();
     }
 
     private function cargarDatos() {
-        $this->nombre = $this->obtenerNombre();
-        $this->ingredientes = $this->obtenerIngredientes();
-        $this->tamanos = $this->obtenerTamanos();
-        $this->descripcion = $this->obtenerDescripcion();
-        $this->precios = $this->obtenerPrecios();
+        try {
+            $this->nombre = $this->obtenerNombre();
+            $this->ingredientes = $this->obtenerIngredientes();
+            $this->tamanos = $this->obtenerTamanos();
+            $this->descripcion = $this->obtenerDescripcion();
+            $this->precios = $this->obtenerPrecios();
+        } catch (Exception $e) {
+            // Puedes hacer un registro de error o lanzar la excepción para que el controlador lo capture
+            throw new Exception("Error al cargar los datos de la pizza: " . $e->getMessage());
+        }
     }
 
     private function obtenerNombre() {
@@ -29,7 +33,7 @@ class Pizza {
         $stmt->bind_param("i", $this->pizza_id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc()['nombre'];
+        return $result->fetch_assoc()['nombre'] ?? 'Nombre no encontrado';
     }
 
     private function obtenerIngredientes() {
@@ -64,7 +68,7 @@ class Pizza {
         $stmt->bind_param("i", $this->pizza_id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc()['descripcion'];
+        return $result->fetch_assoc()['descripcion'] ?? 'Descripción no encontrada';
     }
 
     private function obtenerPrecios() {

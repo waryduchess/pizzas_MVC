@@ -1,19 +1,26 @@
 <?php
-require_once './pizzas.php';  // Asegúrate de que la ruta sea correcta
-// O si el archivo de la clase BaseDeDatos está en otro lugar, ajusta la ruta:
-require_once 'BaseDeDatos.php';  // Cambia esto según la ubicación de tu archivo
+require_once './pizzas.php';
+require_once './consultas.php';
 
-try {
-    $baseDeDatos = new BaseDeDatos();
-    
-    // Comprobar si la conexión es exitosa
-    if ($baseDeDatos->estaConectado()) {
-        echo "La conexión a la base de datos es exitosa.";
-    } else {
-        echo "No se pudo conectar a la base de datos.";
+class PizzaController {
+    private $db;
+
+    public function __construct() {
+        $conex = new BaseDeDatos();
+        $this->db = $conex->getConexion();
     }
 
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage(); // Mostrar el error si hay problemas con la conexión
+    public function mostrarPizza($pizza_id) {
+        try {
+            $pizza = new Pizza($this->db, $pizza_id);
+            if (empty($pizza->nombre)) {
+                throw new Exception("Pizza no encontrada.");
+            }
+            return $pizza;
+        } catch (Exception $e) {
+            error_log("Error: " . $e->getMessage());
+            return null;
+        }
+    }
 }
 ?>
