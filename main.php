@@ -11,14 +11,12 @@ if ($pizza === null) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzería Aña</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -38,9 +36,6 @@ if ($pizza === null) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menú</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#pizza1">Pizza 1</a>
-                            <a class="dropdown-item" href="#pizza2">Pizza 2</a>
-                            <a class="dropdown-item" href="#pizza3">Pizza 3</a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
@@ -53,7 +48,7 @@ if ($pizza === null) {
 <main class="container my-5">
     <section id="pizza1" class="pizza-details mb-5">
         <div class="card">
-            <img src="./img/pizza-napolitana.png" alt="Descripción de la imagen" class="card-img-top">
+            <img src="./img/free-photo-of-comida-cubiertos-fresco-vista-superior.jpeg" alt="Descripción de la imagen" class="card-img-top">
             <div class="card-body">
                 <h2 class="card-title"><?php echo htmlspecialchars($pizza->nombre); ?></h2>
                 <p class="card-text"><?php echo htmlspecialchars($pizza->descripcion); ?></p>
@@ -76,13 +71,9 @@ if ($pizza === null) {
             </div>
         </div>
     </section>
-
     <section id="pizza2" class="pizza-details mb-5">
-        <!-- Similar structure for Pizza 2 -->
     </section>
-
     <section id="pizza3" class="pizza-details mb-5">
-        <!-- Similar structure for Pizza 3 -->
     </section>
 </main>
 

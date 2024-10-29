@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzería Aña</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenidos a Pizzería Aña</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pizzería Aña</a>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+    <section class="text-center mb-5">
+        <h2 class="display-4">Nuestras Pizzas</h2>
+        <p class="lead">Descubre las deliciosas opciones que tenemos para ti, hechas con ingredientes frescos y horneadas al momento.</p>
+        <a href="#menu" class="btn btn-danger btn-lg mt-4">Ver Menú</a>
+    </section>
+
+    <!-- Carrusel de Imágenes -->
+    <section id="menu" class="carousel slide" data-ride="carousel">
+        <!-- Indicadores -->
+        <ol class="carousel-indicators">
+            <li data-target="#menu" data-slide-to="0" class="active"></li>
+            <li data-target="#menu" data-slide-to="1"></li>
+            <li data-target="#menu" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="./img/free-photo-of-comida-cubiertos-fresco-vista-superior.jpeg" class="d-block w-100" alt="Pizza Clásica">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Pizza Clásica</h3>
+                    <p>Deliciosa y tradicional</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./img/pizza-italiana-salchichas-salami-eneldo-champinones-cebolla-roja-queso-sobre-fondo-blanco_140725-475.jpg" class="d-block w-100" alt="Pizza Pepperoni">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Pizza Pepperoni</h3>
+                    <p>Con el mejor pepperoni y mucho queso</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza Vegetariana">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Pizza Vegetariana</h3>
+                    <p>Fresca y llena de sabor</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#menu" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="right carousel-control" href="#menu" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pizzería Aña.</p>
+</footer>
+
+</body>
+</html>
