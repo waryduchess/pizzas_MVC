@@ -162,3 +162,10 @@ body {
 footer p {
     margin: 0;
 }
+/* Carousel Images */
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 500px; /* Define la altura deseada */
+    object-fit: cover; /* Ajusta para llenar el espacio */
+    object-position: center; /* Centra la imagen dentro del marco */
+}
