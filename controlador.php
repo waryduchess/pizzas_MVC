@@ -4,7 +4,7 @@ require_once './consultas.php';
 
 class PizzaController {
     private $db;
-
+//
     public function __construct() {
         $conex = new BaseDeDatos();
         $this->db = $conex->getConexion();
@@ -22,5 +22,6 @@ class PizzaController {
             return null;
         }
     }
+    
 }
 ?>

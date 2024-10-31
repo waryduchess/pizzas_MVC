@@ -7,6 +7,7 @@ class Pizza {
     public $tamanos = [];
     public $descripcion;
     public $precios = [];
+    public $img;
 
     public function __construct($conn, $pizza_id) {
         $this->conn = $conn;
@@ -21,8 +22,8 @@ class Pizza {
             $this->tamanos = $this->obtenerTamanos();
             $this->descripcion = $this->obtenerDescripcion();
             $this->precios = $this->obtenerPrecios();
+            $this->img = $this->obtenerImagen();
         } catch (Exception $e) {
-            // Puedes hacer un registro de error o lanzar la excepción para que el controlador lo capture
             throw new Exception("Error al cargar los datos de la pizza: " . $e->getMessage());
         }
     }
@@ -86,4 +87,13 @@ class Pizza {
         }
         return $precios;
     }
+    private function obtenerImagen() {
+        $sql = "SELECT archivo FROM Imagenes WHERE pizza_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->pizza_id);
+        $stmt->execute();
+        $img = $stmt->get_result();
+        return $img->fetch_assoc()['archivo'] ?? 'imagen_no_disponible.jpg';
+    }
+    
 }

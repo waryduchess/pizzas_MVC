@@ -1,10 +1,9 @@
 <?php
-// main.php
-require_once './controlador.php';
 
+require_once './controlador.php';
+$pizzaId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $pizzaController = new PizzaController();
-$pizza_id = 3; 
-$pizza = $pizzaController->mostrarPizza($pizza_id);
+$pizza = $pizzaController->mostrarPizza($pizzaId);
 
 if ($pizza === null) {
     echo "Error: Pizza no encontrada.";
@@ -36,9 +35,9 @@ if ($pizza === null) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menú</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="./napolitana.php">Pizza Napolitana</a>
-                            <a class="dropdown-item" href="./peperoni.php">Pizza de Peperoni</a>
-                            <a class="dropdown-item" href="./hawaiana.php">Pizza Hawaiana</a>
+                        <a class="dropdown-item" href="./vista.php?id=1">Pizza Napolitana</a>
+                                <a class="dropdown-item" href="./vista.php?id=3">Pizza de Peperoni</a>
+                                <a class="dropdown-item" href="./vista.php?id=2">Pizza Hawaiana</a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="tel:+529981724619">Contacto</a></li>
@@ -51,7 +50,7 @@ if ($pizza === null) {
 <main class="container my-5">
     <section id="pizza1" class="pizza-details mb-5">
         <div class="card">
-            <img src="./img/pepeCard.jpeg" alt="Descripción de la imagen" class="card-img-top">
+            <img src="./img/<?php echo htmlspecialchars($pizza->img); ?>" alt="Imagen de <?php echo htmlspecialchars($pizza->img); ?>" class="card-img-top"> 
             <div class="card-body">
                 <h2 class="card-title"><?php echo htmlspecialchars($pizza->nombre); ?></h2>
                 <p class="card-text"><?php echo htmlspecialchars($pizza->descripcion); ?></p>
@@ -73,11 +72,6 @@ if ($pizza === null) {
                 </ul>
             </div>
         </div>
-    </section>
-    <section id="pizza2" class="pizza-details mb-5">
-    </section>
-    <section id="pizza3" class="pizza-details mb-5">
-    </section>
 </main>
 
 <footer class="bg-danger text-white text-center py-3">
