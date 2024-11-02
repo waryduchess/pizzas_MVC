@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzería Aña</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -21,13 +21,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="./principal.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./principal.php">Inicio</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menú</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="./vista.php?id=1">Pizza Napolitana</a>
                                 <a class="dropdown-item" href="./vista.php?id=3">Pizza de Peperoni</a>
                                 <a class="dropdown-item" href="./vista.php?id=2">Pizza Hawaiana</a>
+                                <a class="dropdown-item" href="./vista.php?id=4">Pizza de Carne Pastor</a>
+                                <a class="dropdown-item" href="./vista.php?id=5">Pizza Mexicana</a>
+                                <a class="dropdown-item" href="./vista.php?id=6">Pizza Vegetariana</a>
                             </div>
 
                         </li>
@@ -49,19 +52,19 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <a href="./vista.php?id=1">
-                            <img src="./img/napo1.jpg" class="d-block w-100" alt="Pizza 1">
+                            <img src="../img/napo1.jpg" class="d-block w-100" alt="Pizza 1">
                         </a>
                     </div>
                     <div class="carousel-item">
                         <a href="./vista.php?id=3">
-                            <img src="./img/freshly-baked-pizza-rustic-wood-table-gourmet-delight-generated-by-artificial-intelligence.jpg" class="d-block w-100" alt="Pizza 2">
+                            <img src="../img/freshly-baked-pizza-rustic-wood-table-gourmet-delight-generated-by-artificial-intelligence.jpg" class="d-block w-100" alt="Pizza 2">
 
                         </a>
 
                     </div>
                     <div class="carousel-item">
                         <a href="./vista.php?id=2">
-                            <img src="./img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza 3">
+                            <img src="../img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza 3">
                         </a>
                     </div>
                 </div>

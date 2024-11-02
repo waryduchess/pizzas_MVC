@@ -1,10 +1,10 @@
 <?php
-require_once './pizzas.php';
-require_once './consultas.php';
+require_once __DIR__ . '/conexionBD.php';
+require_once __DIR__ . '/consultasDatosPIzzas.php';
 
-class PizzaController {
+class usoBD { 
     private $db;
-//
+
     public function __construct() {
         $conex = new BaseDeDatos();
         $this->db = $conex->getConexion();
@@ -22,6 +22,5 @@ class PizzaController {
             return null;
         }
     }
-    
 }
 ?>
