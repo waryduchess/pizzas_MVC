@@ -62,14 +62,14 @@
                                 <!-- Login Card -->
                                 <div class="flip-card__front">
                                     <div class="title mb-3">Iniciar sesión</div>
-                                    <form class="flip-card__form" action="../controladorLogin/controladorLogin.php" method="POST">
+                                    <form class="flip-card__form" action="./Bienvenida.php" method="POST">
                                         <div class="form-group">
                                             <input class="flip-card__input form-control" name="usuario" placeholder="usuario" type="text" required>
                                         </div>
                                         <div class="form-group">
                                             <input class="flip-card__input form-control" name="password" placeholder="password" type="password" required>
                                         </div>
-                                        <a href="./Bienvenida.php" class="flip-card__btn btn btn-primary btn-block"><button  type="submit">¡Vamos!</button></a>
+                                        <button  type="submit" onclick="window.location.href='./Bienvenida.php'">¡Vamos!</button></a>
                                         </form>
 
                                 </div>

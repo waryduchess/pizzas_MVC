@@ -6,40 +6,48 @@ class ControladorLogin {
     private $contrasena;
     private $valUser;
 
+    // Propiedades privadas para almacenar los datos del usuario
+    private $nombreUsuario;
+    private $usuarioId;
+    private $tipoUsuario;
+
     public function __construct() {
-        // Capturar los datos enviados desde el formulario
         $this->usuario = $_POST['usuario'];
         $this->contrasena = $_POST['password'];
-
-        // Instanciar la clase ValidadorUsuario, que ya contiene la conexión
+        
+        // Instanciar la clase ValidadorUsuario
         $this->valUser = new ValidadorUsuario();
     }
 
     public function valuser() {
-        // Llamar al método validarCredenciales de ValidadorUsuario
+        // Validar las credenciales
         $resultado = $this->valUser->validarCredenciales($this->usuario, $this->contrasena);
 
         if ($resultado['status']) {
-            // Si la validación es exitosa, mostrar la bienvenida personalizada
-            $this->mostrarBienvenida($resultado);
+            // Si la autenticación es exitosa, almacenamos los datos del usuario en las propiedades
+            $this->nombreUsuario = $resultado['nombre'];
+            $this->usuarioId = $resultado['usuario'];
+            $this->tipoUsuario = $resultado['tipoUser'];
         } else {
-            // Si hubo un error, mostrar el mensaje de error
-            echo "Error: " . htmlspecialchars($resultado['error']);
+            // Si hubo un error, lanzamos una excepción o almacenamos el mensaje de error
+            throw new Exception("Error: " . htmlspecialchars($resultado['error']));
         }
     }
 
-    private function mostrarBienvenida($resultado) {
-        // Crear un mensaje de bienvenida personalizado
-        echo "<div class='bienvenida'>";
-        echo "<h1>¡Bienvenido, " . htmlspecialchars($resultado['nombre']) . "!</h1>";
-        echo "<p>Usuario: " . htmlspecialchars($resultado['usuario']) . "</p>";
-        echo "<p>Tipo de Usuario: " . htmlspecialchars($resultado['tipoUser']) . "</p>";
-        echo "<p>Estamos felices de tenerte aquí. Explora nuestras funcionalidades y disfruta de tu experiencia.</p>";
-        echo "</div>";
+    // Métodos 'get' para acceder a los datos del usuario
+    public function getNombreUsuario() {
+        return $this->nombreUsuario;
+    }
+
+    public function getUsuarioId() {
+        return $this->usuarioId;
+    }
+
+    public function getTipoUsuario() {
+        return $this->tipoUsuario;
+    }
+    public function getUser(){
+    return $this->usuario;
     }
 }
-
-// Crear una instancia de ControladorLogin y ejecutar la validación
-$controlador = new ControladorLogin();
-$controlador->valuser();
 ?>

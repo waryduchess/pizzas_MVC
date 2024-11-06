@@ -67,6 +67,21 @@
                             <img src="../img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza 3">
                         </a>
                     </div>
+                    <div class="carousel-item">
+                        <a href="./vista.php?id=4">
+                            <img src="../img/carruselPastor.jpeg" class="d-block w-100" alt="Pizza 3">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./vista.php?id=5">
+                            <img src="../img/carruselMEX.jpg" class="d-block w-100" alt="Pizza 3">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./vista.php?id=6">
+                            <img src="../img/carruselVEGE.avif" class="d-block w-100" alt="Pizza 3">
+                        </a>
+                    </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
