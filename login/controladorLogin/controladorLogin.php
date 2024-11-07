@@ -10,11 +10,11 @@ class ControladorLogin {
     private $nombreUsuario;
     private $usuarioId;
     private $tipoUsuario;
+    private $status;
 
     public function __construct() {
         $this->usuario = $_POST['usuario'];
-        $this->contrasena = $_POST['password'];
-        
+        $this->contrasena = $_POST['password'];    
         $this->valUser = new ValidadorUsuario();
     }
 
@@ -25,8 +25,9 @@ class ControladorLogin {
             $this->nombreUsuario = $resultado['nombre'];
             $this->usuarioId = $resultado['usuario'];
             $this->tipoUsuario = $resultado['tipoUser'];
+            $this->status = $resultado['status'];
         } else {
-            throw new Exception("Error: " . htmlspecialchars($resultado['error']));
+            echo  htmlspecialchars("Usuario no encontrado");
         }
     }
 
@@ -43,6 +44,9 @@ class ControladorLogin {
     }
     public function getUser(){
     return $this->usuario;
+    }
+    public function getStatus(){
+    return $this->status;
     }
 }
 ?>
