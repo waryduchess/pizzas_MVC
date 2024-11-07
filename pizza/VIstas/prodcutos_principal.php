@@ -82,47 +82,20 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="./vista.php?id=1">
-                            <img src="../img/napo1.jpg" class="d-block w-100" alt="Pizza 1">
+                        <a href="./vista.php?id=7">
+                            <img src="../img/carruselHamburgesa.jpg" class="d-block w-100" alt="Pizza 1">
                         </a>
                     </div>
                     <div class="carousel-item">
-                        <a href="./vista.php?id=3">
-                            <img src="../img/freshly-baked-pizza-rustic-wood-table-gourmet-delight-generated-by-artificial-intelligence.jpg" class="d-block w-100" alt="Pizza 2">
+                        <a href="./vista.php?id=8">
+                            <img src="../img/carrusel-HotDog.jpeg" class="d-block w-100" alt="Pizza 2">
                         </a>
                     </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=2">
-                            <img src="../img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=4">
-                            <img src="../img/carruselPastor.jpeg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=5">
-                            <img src="../img/carruselMEX.jpg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=6">
-                            <img src="../img/carruselVEGE.avif" class="d-block w-100" alt="Pizza 3">
-                        </a>
+                    
                     </div>
                     <div class="carousel-item">
                         <a href="#">
-                        <h3 class="center">Mostrar más productos</h3>
-
-<style>
-    .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-    </style>
+                            <h3 class="center">Mostrar más productos</h3>
                         </a>
                     </div>
                 </div>

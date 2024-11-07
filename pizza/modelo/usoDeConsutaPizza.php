@@ -10,6 +10,7 @@ class usoBD {
         $this->db = $conex->getConexion();
     }
 
+    
     public function mostrarPizza($pizza_id) {
         try {
             $pizza = new Pizza($this->db, $pizza_id);
