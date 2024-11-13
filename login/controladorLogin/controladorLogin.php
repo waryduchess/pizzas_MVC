@@ -26,6 +26,7 @@ class ControladorLogin {
             $this->usuarioId = $resultado['usuario'];
             $this->tipoUsuario = $resultado['tipoUser'];
             $this->status = $resultado['status'];
+            
         } else {
             echo  htmlspecialchars("Usuario no encontrado");
         }
@@ -50,3 +51,5 @@ class ControladorLogin {
     }
 }
 ?>
+
+

@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../modelo/usoDeConsutaPizza.php';
+require_once __DIR__ . '/../modelo/carruselImgModelo.php';
+
 class PizzaController {
     private $usoBd;
     private $pizzaId;
@@ -13,6 +15,10 @@ class PizzaController {
 
     public function mostrarPizza() {
         return $this->usoBd->mostrarPizza($this->pizzaId);
+    }
+    public function getImgPizzas() {
+        $img = new ImagenesPizza(); // Asegúrate de pasar la conexión si es necesario
+        return $img->obtenerTodasLasImagenesCarrusel();
     }
 }
 ?>

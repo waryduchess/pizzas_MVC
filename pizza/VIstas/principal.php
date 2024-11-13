@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <?php
+    require_once __DIR__ . "/../controlador/controlador.php"; // Asegúrate de incluir la clase
+    $imagenesPizza = new PizzaController(); // Asegúrate de que $conn esté definido
+    $imagenesCarrusel = $imagenesPizza->getImgPizzas();
+    ?>
 
     <header class="bg-danger text-white text-center py-3">
         <h1>Bienvenidos a Pizzería Aña</h1>
@@ -22,7 +27,6 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="./principal.php">Inicio</a></li>
-
                         <!-- Menú desplegable para "Menú" -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menú</a>
@@ -35,36 +39,7 @@
                                 <a class="dropdown-item" href="./vista.php?id=6">Pizza Vegetariana</a>
                             </div>
                         </li>
-
-                        <!-- Menú desplegable para "Otros productos" -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOtros" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otros productos</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownOtros">
-                                <a class="dropdown-item" href="./vista.php?id=7">Hamburguesa</a>
-                                <a class="dropdown-item" href="./vista.php?id=8">Hot-Dog</a>
-
-                            </div>
-                        </li>
-
-                        <!-- Menú desplegable para "Postres" -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPostres" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Postres</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPostres">
-                                <a class="dropdown-item" href="./vista.php?id=1">Pastel de chocolate</a>
-                              
-                                
-                            </div>
-                        </li>
-
-                        <!-- Menú desplegable para "Bebidas" -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBebidas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bebidas</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownBebidas">
-                                <a class="dropdown-item" href="./vista.php?id=1">Te helado</a>
-                               
-                            </div>
-                        </li>
-
+                        <!-- Otros menús -->
                         <li class="nav-item"><a class="nav-link" href="tel:+529981724619">Contacto</a></li>
                     </ul>
                 </div>
@@ -76,55 +51,18 @@
         <section id="pizza-carousel" class="mb-5">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <?php foreach ($imagenesCarrusel as $index => $imagen): ?>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $index ?>" class="<?= $index === 0 ? 'active' : '' ?>"></li>
+                    <?php endforeach; ?>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <a href="./vista.php?id=1">
-                            <img src="../img/napo1.jpg" class="d-block w-100" alt="Pizza 1">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=3">
-                            <img src="../img/freshly-baked-pizza-rustic-wood-table-gourmet-delight-generated-by-artificial-intelligence.jpg" class="d-block w-100" alt="Pizza 2">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=2">
-                            <img src="../img/hawaiian-pizza-with-pineapple-ham-cheese-wooden-table.jpg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=4">
-                            <img src="../img/carruselPastor.jpeg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=5">
-                            <img src="../img/carruselMEX.jpg" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="./vista.php?id=6">
-                            <img src="../img/carruselVEGE.avif" class="d-block w-100" alt="Pizza 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="#">
-                        <h3 class="center">Mostrar más productos</h3>
-
-<style>
-    .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-    </style>
-                        </a>
-                    </div>
+                    <?php foreach ($imagenesCarrusel as $index => $imagen): ?>
+                        <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                            <a href="./vista.php?id=<?= $index + 1 ?>"> 
+                                <img src="../img/<?= htmlspecialchars($imagen) ?>" class="d-block w-100" alt="Imagen del carrusel <?= $index + 1 ?>">
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -143,9 +81,6 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

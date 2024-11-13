@@ -39,9 +39,16 @@ $control->valuser();
 
     <script>
     <?php if ($control->getStatus()): ?>
-        setTimeout(function() {
-            window.location.href = "http://localhost/pizzas_MVC/pizza/VIstas/principal.php";
-        }, 5000);
+       
+        <?php if ($control->getTipoUsuario() == 2): ?>
+            setTimeout(function() {
+                window.location.href = "http://localhost/pizzas_MVC/formulariooInsertar/vistaForm/registroPizza.php";
+            }, 5000);
+        <?php elseif ($control->getTipoUsuario() == 1): ?>
+            setTimeout(function() {
+                window.location.href = "http://localhost/pizzas_MVC/pizza/VIstas/principal.php";
+            }, 5000);
+        <?php endif; ?>
     <?php else: ?>
         setTimeout(function() {
         window.location.href = "http://localhost/pizzas_MVC/login/vistaLogin/LoginVista.php";
